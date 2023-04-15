@@ -1,7 +1,5 @@
 <div class="jumbotron jumbotron-fluid text-center text-uppercase">
-	<h1 class="display-4">Selamat Datang Di smk Tunas Harapan</h1>
-	<hr class="my-4">
-	<h2 class="display-4">STATISTIK DATA ADMINISTRASI SISWA</h2>
+	<h1 class="display-4">STATISTIK DATA ADMINISTRASI SISWA</h1>
 	<div class="container">
 		<div class="row">
 			<div class="col-md mt-4">
@@ -23,5 +21,4 @@
 			</div>
 		</div>
 	</div>
-
 </div>
