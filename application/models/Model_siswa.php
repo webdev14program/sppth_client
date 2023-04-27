@@ -29,14 +29,15 @@ GROUP BY siswa.nis;";
 
 	public function cariSiswaNIS($nis)
 	{
-		$sql = "SELECT siswa.id_siswa,siswa.kelas,group_kelas.nama_group,jurusan.jurusan,tahun_ajaran.tahun_ajaran, concat(siswa.id_siswa,siswa.tahun_ajaran) AS siswa_tahun FROM `siswa`
+		$sql = "SELECT siswa.nis,siswa.nama_siswa,jurusan.jurusan,siswa.kelas,tahun_ajaran.tahun_ajaran,spp_siswa.status,(spp_siswa.cash+spp_siswa.kjp_cash+spp_siswa.kjp) AS total_bayar, count(*) AS jumlah_bulan,(11-count(*)) sisa FROM `spp_siswa`
+INNER JOIN siswa
+ON spp_siswa.id_siswa=concat(siswa.id_siswa,siswa.tahun_ajaran)
 INNER JOIN jurusan
-ON siswa.jurusan=jurusan.kode
-INNER join group_kelas
-ON siswa.group_kelas=group_kelas.id_groupKelas
+ON jurusan.kode=siswa.jurusan
 INNER JOIN tahun_ajaran
 ON siswa.tahun_ajaran=tahun_ajaran.id_tahun_ajaran
-WHERE siswa.nis = '$nis';";
+WHERE spp_siswa.status='LUNAS' AND siswa.nis='$nis'
+GROUP BY siswa.kelas;";
 		$query = $this->db->query($sql);
 		return $query->result_array();
 	}
