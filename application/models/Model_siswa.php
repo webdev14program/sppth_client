@@ -10,7 +10,7 @@ class Model_siswa extends CI_Model
 		$sql = "SELECT siswa.id_siswa,siswa.nis,siswa.nama_siswa,jurusan.jurusan,siswa.kelas FROM `siswa`
 INNER JOIN jurusan
 ON siswa.jurusan=jurusan.kode
-WHERE siswa.nama_siswa LIKE '%$nama_siswa%'
+WHERE siswa.nis='$nama_siswa'
 GROUP BY nis;";
 		$query = $this->db->query($sql);
 		return $query->result_array();
