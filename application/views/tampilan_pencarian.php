@@ -26,7 +26,6 @@
 						<thead>
 							<tr class="text-uppercase">
 								<th scope="col">#</th>
-								<th scope="col">NIS</th>
 								<th scope="col">NAMA SIswa</th>
 								<th scope="col">jurusan</th>
 								<th scope="col">aksi</th>
@@ -39,7 +38,6 @@
 								foreach ($siswa as $row) {
 								?>
 									<td class="text-center"><?php echo $no++; ?></td>
-									<td><?= $row['nis']; ?></td>
 									<td><?= $row['nama_siswa']; ?></td>
 									<td><?= $row['jurusan']; ?></td>
 									<td>
